@@ -1,0 +1,10 @@
+index.html
+*.zip
+.vs/*
+Bin/*
+*.o
+*/x64/
+*.filters
+*/Documentation
+*.com
+*/Release/

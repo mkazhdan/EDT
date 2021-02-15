@@ -1,0 +1,120 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EDTFromGrid", "EDTFromGrid\EDTFromGrid.vcxproj", "{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC} = {B5899B32-FAC2-477E-99AA-86736B97F2FC}
+		{0BE55595-4080-4265-82AF-51108EC956B2} = {0BE55595-4080-4265-82AF-51108EC956B2}
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647} = {D3D173AB-D306-4179-BEC4-95CE1B14E647}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EDTFromMesh", "EDTFromMesh\EDTFromMesh.vcxproj", "{C22B8323-82B6-477A-885A-CE024B3D3BC5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "JPEG", "JPEG\JPEG.vcxproj", "{0BE55595-4080-4265-82AF-51108EC956B2}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PNG", "PNG\PNG.vcxproj", "{B5899B32-FAC2-477E-99AA-86736B97F2FC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ZLIB", "ZLIB\ZLIB.vcxproj", "{D3D173AB-D306-4179-BEC4-95CE1B14E647}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Misha", "Misha", "{D78EB5A0-5259-40C5-862C-B55156EB47D3}"
+	ProjectSection(SolutionItems) = preProject
+		Misha\Algebra.h = Misha\Algebra.h
+		Misha\Array.h = Misha\Array.h
+		Misha\Array.inl = Misha\Array.inl
+		Misha\BMP.h = Misha\BMP.h
+		Misha\BMP.inl = Misha\BMP.inl
+		Misha\CmdLineParser.h = Misha\CmdLineParser.h
+		Misha\CmdLineParser.inl = Misha\CmdLineParser.inl
+		Misha\Exceptions.h = Misha\Exceptions.h
+		Misha\Geometry.h = Misha\Geometry.h
+		Misha\Geometry.inl = Misha\Geometry.inl
+		Misha\Image.h = Misha\Image.h
+		Misha\IsoSurface3D.h = Misha\IsoSurface3D.h
+		Misha\IsoSurface3D.inl = Misha\IsoSurface3D.inl
+		Misha\JPEG.h = Misha\JPEG.h
+		Misha\JPEG.inl = Misha\JPEG.inl
+		Misha\MarchingCubes.h = Misha\MarchingCubes.h
+		Misha\MarchingCubes.inl = Misha\MarchingCubes.inl
+		Misha\Miscellany.h = Misha\Miscellany.h
+		Misha\PBM.h = Misha\PBM.h
+		Misha\PBM.inl = Misha\PBM.inl
+		Misha\Ply.h = Misha\Ply.h
+		Misha\Ply.inl = Misha\Ply.inl
+		Misha\PlyFile.h = Misha\PlyFile.h
+		Misha\PlyFile.inl = Misha\PlyFile.inl
+		Misha\PlyVertexData.h = Misha\PlyVertexData.h
+		Misha\PlyVertexData.inl = Misha\PlyVertexData.inl
+		Misha\PNG.h = Misha\PNG.h
+		Misha\PNG.inl = Misha\PNG.inl
+		Misha\Rasterizer.h = Misha\Rasterizer.h
+		Misha\Rasterizer.inl = Misha\Rasterizer.inl
+		Misha\RegularGrid.h = Misha\RegularGrid.h
+		Misha\RegularGrid.inl = Misha\RegularGrid.inl
+		Misha\SquaredEDT.h = Misha\SquaredEDT.h
+		Misha\SquaredEDT.inl = Misha\SquaredEDT.inl
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MarchingCubes", "MarchingCubes\MarchingCubes.vcxproj", "{5B95A99E-2D92-47E4-A03F-6DB617E8132A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Debug|x64.ActiveCfg = Debug|x64
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Debug|x64.Build.0 = Debug|x64
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Debug|x86.ActiveCfg = Debug|Win32
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Debug|x86.Build.0 = Debug|Win32
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Release|x64.ActiveCfg = Release|x64
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Release|x64.Build.0 = Release|x64
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Release|x86.ActiveCfg = Release|Win32
+		{0EAEB2A9-2708-42A4-9552-EEB32A158D0E}.Release|x86.Build.0 = Release|Win32
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Debug|x64.ActiveCfg = Debug|x64
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Debug|x64.Build.0 = Debug|x64
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Debug|x86.ActiveCfg = Debug|Win32
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Debug|x86.Build.0 = Debug|Win32
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Release|x64.ActiveCfg = Release|x64
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Release|x64.Build.0 = Release|x64
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Release|x86.ActiveCfg = Release|Win32
+		{C22B8323-82B6-477A-885A-CE024B3D3BC5}.Release|x86.Build.0 = Release|Win32
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Debug|x64.ActiveCfg = Release|x64
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Debug|x64.Build.0 = Release|x64
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Debug|x86.ActiveCfg = Release|x64
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Debug|x86.Build.0 = Release|x64
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Release|x64.ActiveCfg = Release|x64
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Release|x64.Build.0 = Release|x64
+		{0BE55595-4080-4265-82AF-51108EC956B2}.Release|x86.ActiveCfg = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Debug|x64.ActiveCfg = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Debug|x64.Build.0 = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Debug|x86.ActiveCfg = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Debug|x86.Build.0 = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Release|x64.ActiveCfg = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Release|x64.Build.0 = Release|x64
+		{B5899B32-FAC2-477E-99AA-86736B97F2FC}.Release|x86.ActiveCfg = Release|x64
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647}.Debug|x64.ActiveCfg = Debug|x64
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647}.Debug|x64.Build.0 = Debug|x64
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647}.Debug|x86.ActiveCfg = Debug|x64
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647}.Release|x64.ActiveCfg = Release|x64
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647}.Release|x64.Build.0 = Release|x64
+		{D3D173AB-D306-4179-BEC4-95CE1B14E647}.Release|x86.ActiveCfg = Release|x64
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Debug|x64.ActiveCfg = Debug|x64
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Debug|x64.Build.0 = Debug|x64
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Debug|x86.ActiveCfg = Debug|Win32
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Debug|x86.Build.0 = Debug|Win32
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Release|x64.ActiveCfg = Release|x64
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Release|x64.Build.0 = Release|x64
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Release|x86.ActiveCfg = Release|Win32
+		{5B95A99E-2D92-47E4-A03F-6DB617E8132A}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {02BED019-04E9-4315-AE8C-38A941AD1A7D}
+	EndGlobalSection
+EndGlobal
