@@ -43,29 +43,29 @@ This software supports the computation of the Euclidean Distance Transform (EDT)
 <details>
 <summary>
 <font size="+1"><b>EDTFromMesh</b></font>:
-Computes the unsigned EDT from a triangle mesh and outputs a regular grid of dimension 2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup> with the distance values.<BR>
+Computes the unsigned EDT from a triangle mesh and outputs a regular grid of dimension 2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup> sampling the distance values.<BR>
 </summary>
 <dt><b>--in</b> &lt;<i>input mesh</i>&gt;</dt>
 <dd> This strings specifies the the names of the mesh.<br>
-The input mesh is assumed to be in <a href="http://www.cc.gatech.edu/projects/large_models/ply.html">PLY</a> format, giving the set of vertices with the x-, y-, and z-coordinates of the positions encoded by the properties <i>x</i>, <i>y</i>.<br>
+The input mesh is assumed to be in <a href="http://www.cc.gatech.edu/projects/large_models/ply.html">PLY</a> format, giving the set of vertices with the x-, y-, and z-coordinates of the positions encoded by the properties <i>x</i>, <i>y</i>, and <i>z</i>.<br>
 </dd>
 
 <dt>[<b>--out</b> &lt;<i>output unsigned EDT</i>&gt;]</dt>
-<dd> This string is the name of the file to which the unsigned EDT is written. In addition to the values of the EDT (represented as single-precision floats, describing the distance to the surface in voxel units) the file also stores the rigid transformation mapping grid coordinates to model coordinates.</B>
+<dd> This string is the name of the file to which the unsigned EDT is written. In addition to the values of the EDT (represented as single-precision floats, describing the distance to the surface in voxel units) the file also stores the similarity transformation mapping grid coordinates to model coordinates.</B>
 </dd>
 
 <dt>[<b>--depth</b> &lt;<i>depth of the grid</i>&gt;]</dt>
-<dd> This integer specifies the depth the grid used to sample the unsigned EDT. If the value of this parameter is <i>d</i>, the grid will have resolution 2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>.</B>
+<dd> This integer specifies the depth of the grid used to sample the unsigned EDT. If the value of this parameter is <i>d</i>, the grid will have resolution 2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>.<BR>
 The default value for this parameter is 8.
 </dd>
 
 <dt>[<b>--scale</b> &lt;<i>bounding box scale</i>&gt;]</dt>
-<dd> This floating point values specifies the scaling of the bounding box defining the domain over which the EDT is sampled.<BR>
+<dd> This floating point values specifies the scaling of the bounding cube defining the domain over which the EDT is sampled.<BR>
 The default value for this parameter is 2.
 </dd>
 
 <dt>[<b>--radius</b> &lt;<i>neighbor radius</i>&gt;]</dt>
-<dd> This integer point values specifies the radius over which exact distances are computed. If the value is non-negative then the more precise method of Danielsson is used, with this value prescribing the radius for exact distance computation. Otherwise, the less precise (but more efficient) method of Saito and Toriwaki is used.<BR>
+<dd> This integer values specifies the radius over which exact distances are computed. If the value is non-negative then the more precise method of Danielsson is used, with this value prescribing the radius for exact distance computation. Otherwise, the less precise (but more efficient) method of Saito and Toriwaki is used.<BR>
 The default value for this parameter is -1.
 </dd>
 
@@ -79,20 +79,20 @@ The default value for this parameter is -1.
 <details>
 <summary>
 <font size="+1"><b>EDTFromGrid</b></font>:
-Computes the signed EDT from a voxel mask and outputs a regular grid of dimension 2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup> with the distance values. For this implementation, the mask is represented by a set of color images (all of the same resolution) and a color specifiying the interior label. The output distance function will have negative values for points inside the labelled region and positive value for points outside of it.
+Computes the signed EDT from a voxel mask and outputs a regular grid of dimension 2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup>&times;2<sup><i>d</i></sup> with the distance values. For this implementation, the mask is represented by a set of color images (all of the same resolution) and a color specifiying the interior label. The output distance function will have negative values for points inside the labelled region and positive value for points outside of it.
 </summary>
 
 <dt><b>--in</b> &lt;<i>input image list</i>&gt;</dt>
 <dd> This string is the name of the file listing the images in the stack.<br>
-The images can be in <I>bmp</I>, <I>png</I>, <I>jpg</I>, or <I>jpeg</I> format. Though the use of JPEG format is discouraged due to the lossy compression.
+The images can be in <I>bmp</I>, <I>png</I>, <I>jpg</I>, or <I>jpeg</I> format. The use of JPEG format is discouraged due to the lossy compression.
 </dd>
 
 <dt><b>--id</b> &lt;<i>mask red</i>&gt; &lt;<i>mask green</i>&gt; &lt;<i>mask blue</i>&gt;</dt>
-<dd> This triplet of integer values values specify the color that is used to define the interior of the mask.
+<dd> This triplet of integer values values specifies the color that is used to define the interior of the mask.
 </dd>
 
 <dt>[<b>--out</b> &lt;<i>output signed EDT</i>&gt;]</dt>
-<dd> This string is the name of the file to which the signed EDT is written. In addition to the values of the EDT (represented as single-precision floats) the file also stores the rigid transformation mapping grid coordinates to model coordinates.</B>
+<dd> This string is the name of the file to which the signed EDT is written. In addition to the values of the EDT (represented as single-precision floats) the file also stores the similarity transformation mapping grid coordinates to model coordinates.</B>
 </dd>
 
 </details>
@@ -119,22 +119,22 @@ The default value for this parameter is 0.
 </dd>
 
 <dt>[<b>--out</b> &lt;<i>output surface</i>&gt;]</dt>
-<dd> This string is the name of the file to which extract surface will be written. The surface will be written out in <a href="http://www.cc.gatech.edu/projects/large_models/ply.html">PLY</a>.</B> format.
+<dd> This string is the name of the file to which extracted surface will be written. The surface will be written out in <a href="http://www.cc.gatech.edu/projects/large_models/ply.html">PLY</a></B> format.
 </dd>
 
 <dt>[<b>--fit</b> &lt;<i>interpolation type</i>&gt;]</dt>
-<dd> This integer value specifies the way in which a 1D polynomial is fit to the discrete values.
+<dd> This integer value specifies the way in which a 1D polynomial is fit to a grid edge.
 <UL>
 <LI>0: a linear polynomial interpolating the values at the two end-points is used.
 <LI>1: a quadratic polynomial interpolating the values at the two end-points and providing a least-squares fit to the derivatives at the two end-points is used.
-<LI>2: a cubic polynomial interpolation the values at the two end-points and the two neighbors is used.
+<LI>2: a cubic polynomial interpolating the values at the two end-points and the two neighbors is used.
 <LI>3: a (cubic) Catmull-Rom spline fit to the two end-points and the two-neighbors is used.
 </UL>
 The default value for this parameter is 0.
 </dd>
 
 <dt>[<b>--polygons</B>]</dt>
-<dd> If this flag is specified, a polygon mesh is extracted. Otherwise the polygons are triangulated (using a minimum area triangulation) and a triangle mesh returned.
+<dd> If this flag is specified, a polygon mesh is extracted. Otherwise the polygons are triangulated (using a minimum area triangulation) and a triangle mesh is returned.
 </dd>
 
 
@@ -152,12 +152,11 @@ The default value for this parameter is 0.
 <summary>
 <font size="+1"><b>EDTFromMesh/MarchingCubes</b></font>
 </summary>
-To run this executable you must specify the input mesh and the output voxel grid of unsigned distances:
+To run this executable you must specify the input mesh and the output voxel grid:
 <blockquote><code>% Bin/*/EDTFromMesh --in <A HREF="http://www.cs.jhu.edu/~misha/Code/EDT/bunny.ply">bunny.ply</A> --out bunny.saito.edt --depth 9 </code></blockquote>
-This generates a 512&times;512&times;512 voxel grid file <CODE>bunny.saito.edt</CODE> of unsigned EDT values using Saito and Toriwaki's method.<BR>
-Additionally, specifying a non-negative radius:
+This generates a 512&times;512&times;512 voxel grid file of unsigned EDT values using Saito and Toriwaki's method. Using a non-negative radius:
 <blockquote><code>% Bin/*/EDTFromMesh --in <A HREF="http://www.cs.jhu.edu/~misha/Code/EDT/bunny.ply">bunny.ply</A> --out bunny.danielsson.edt --depth 9 --radius 1</code></blockquote>
-generates a 512&times;512&times;512 voxel grid file <CODE>bunny.danielsson.edt</CODE> of unsigned EDT values using Danielsson's method.<BR>
+generates a 512&times;512&times;512 voxel grid file of unsigned EDT values using Danielsson's method.<BR>
 You can then extract the iso-surface at a distance of 5 voxel by calling:
 <blockquote><code>% Bin/*/MarchingCubes --in bunny.saito.edt --out bunny.saito.ply --value 5</code></blockquote>
 <blockquote><code>% Bin/*/MarchingCubes --in bunny.danielsson.edt --out bunny.danielsson.ply --value 5</code></blockquote>
