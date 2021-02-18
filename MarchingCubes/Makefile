@@ -1,6 +1,7 @@
 TARGET=MarchingCubes
 SOURCE=MarchingCubes.cpp
 
+COMPILER ?= gcc
 
 CFLAGS += -fpermissive -fopenmp -Wno-deprecated -Wno-unused-result -Wno-format -msse2 -std=c++14 
 LFLAGS += -lgomp
@@ -17,8 +18,14 @@ BIN = ./../Bin/Linux/
 BIN_O = ./
 INCLUDE = /usr/include/ -I../
 
-CC=gcc
-CXX=g++
+ifeq ($(COMPILER),gcc)
+	CC=gcc
+	CXX=g++
+else
+	CC=clang
+	CXX=clang++
+endif
+
 MD=mkdir
 
 OBJECTS=$(addprefix $(BIN_O), $(addsuffix .o, $(basename $(SOURCE))))

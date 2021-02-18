@@ -1,9 +1,13 @@
-programs = EDTFromMesh EDTFromGrid MarchingCubes
+programs = PNG EDTFromMesh EDTFromGrid MarchingCubes
+
+COMPILER ?= gcc
+
+#	cd PNG  && make COMPILER=$(COMPILER)
 
 # Allow "make -j" to operate in parallel over the programs.
 all: $(programs)
 $(programs):
-	$(MAKE) -C $@
+	$(MAKE) -C $@ COMPILER=$(COMPILER)
 
 programs_debug = $(foreach n,$(programs),debug_$(n))  # pseudo-dependency to allow "make -j" parallelism
 debug: $(programs_debug)

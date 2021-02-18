@@ -28,8 +28,10 @@ DAMAGE.
 #include <stdio.h>
 #include <vector>
 #ifdef _WIN32
+#include "ZLIB/zlib.h"
 #include "PNG/png.h"
 #else // !_WIN32
+#include <zlib.h>
 #include <png.h>
 #endif // _WIN32
 

@@ -1,9 +1,10 @@
 TARGET=EDTFromGrid
 SOURCE=EDTFromGrid.cpp
 
+COMPILER ?= gcc
 
 CFLAGS += -fpermissive -fopenmp -Wno-deprecated -Wno-unused-result -Wno-format -msse2 -std=c++14 
-LFLAGS += -lgomp -lz -lpng -ljpeg
+LFLAGS += -L$(BIN) -lgomp -ljpeg -lmypng -lz
 
 CFLAGS_DEBUG = -DDEBUG -g3
 LFLAGS_DEBUG =
@@ -17,8 +18,14 @@ BIN = ./../Bin/Linux/
 BIN_O = ./
 INCLUDE = /usr/include/ -I../
 
-CC=gcc
-CXX=g++
+ifeq ($(COMPILER),gcc)
+	CC=gcc
+	CXX=g++
+else
+	CC=clang
+	CXX=clang++
+endif
+
 MD=mkdir
 
 OBJECTS=$(addprefix $(BIN_O), $(addsuffix .o, $(basename $(SOURCE))))
