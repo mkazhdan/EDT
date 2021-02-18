@@ -29,8 +29,8 @@ DAMAGE.
 #ifndef POLYNOMIAL_INCLUDED
 #define POLYNOMIAL_INCLUDED
 #include <iostream>
-#include "geometry.h"
-#include "algebra.h"
+#include "Geometry.h"
+#include "Algebra.h"
 #include "Poly34.h"
 #include "Exceptions.h"
 
@@ -318,7 +318,7 @@ namespace Polynomial
 
 	/** A specialization that allows us for the recursive computation of the number of coefficints, that allows us to avoid special-casing when the the Degree is zero. */
 	template< unsigned int Dim >
-	class Polynomial< Dim , -1 >
+	class Polynomial< Dim , (unsigned int)-1 >
 	{
 	public:
 		static const unsigned int NumCoefficients = 0;
