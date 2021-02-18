@@ -28,11 +28,15 @@ DAMAGE.
 #ifndef PNG_INCLUDED
 #define PNG_INCLUDED
 
+#if 1 // Does not play well with newer versions of PNG
+#include "PNG/png.h"
+#else
 #ifdef _WIN32
 #include "PNG/png.h"
 #else // !_WIN32
 #include <png.h>
 #endif // _WIN32
+#endif
 
 struct PNGReader : public ImageReader
 {
