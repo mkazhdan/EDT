@@ -38,6 +38,10 @@ DAMAGE.
 #endif // _WIN32
 #endif
 
+#if PNG_LIBPNG_VER_MAJOR>=1 && PNG_LIBPNG_VER_MINOR>=5
+#define NEW_PNG
+#endif
+
 struct PNGReader : public ImageReader
 {
 	PNGReader( const char* fileName , unsigned int& width , unsigned int& height , unsigned int& channels );
@@ -45,10 +49,10 @@ struct PNGReader : public ImageReader
 	unsigned int nextRow( unsigned char* row );
 	static bool GetInfo( const char* fileName , unsigned int& width , unsigned int& height , unsigned int& channels );
 protected:
+	FILE* _fp;
 	png_structp _png_ptr;
 	png_infop _info_ptr;
 	png_infop _end_info ;
-	FILE* _fp;
 	unsigned int _currentRow;
 };
 
@@ -60,6 +64,9 @@ struct PNGWriter : public ImageWriter
 	unsigned int nextRows( const unsigned char* rows , unsigned int rowNum );
 protected:
 	FILE* _fp;
+#ifdef NEW_PNG
+	unsigned int _width;
+#endif // NEW_ONG
 	png_structp _png_ptr;
 	png_infop _info_ptr;
 	unsigned int _currentRow;

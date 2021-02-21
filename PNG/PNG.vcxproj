@@ -9,7 +9,6 @@
   <ItemGroup>
     <ClCompile Include="png.c" />
     <ClCompile Include="pngerror.c" />
-    <ClCompile Include="pnggccrd.c" />
     <ClCompile Include="pngget.c" />
     <ClCompile Include="pngmem.c" />
     <ClCompile Include="pngpread.c" />
@@ -18,9 +17,7 @@
     <ClCompile Include="pngrtran.c" />
     <ClCompile Include="pngrutil.c" />
     <ClCompile Include="pngset.c" />
-    <ClCompile Include="pngtest.c" />
     <ClCompile Include="pngtrans.c" />
-    <ClCompile Include="pngvcrd.c" />
     <ClCompile Include="pngwio.c" />
     <ClCompile Include="pngwrite.c" />
     <ClCompile Include="pngwtran.c" />
@@ -28,8 +25,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="png.h" />
-    <ClInclude Include="pngasmrd.h" />
     <ClInclude Include="pngconf.h" />
+    <ClInclude Include="pngdebug.h" />
+    <ClInclude Include="pnginfo.h" />
+    <ClInclude Include="pngpriv.h" />
+    <ClInclude Include="pngstruct.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B5899B32-FAC2-477E-99AA-86736B97F2FC}</ProjectGuid>

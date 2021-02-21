@@ -157,7 +157,7 @@ To run this executable you must specify the input mesh and the output voxel grid
 This generates a 512&times;512&times;512 voxel grid file of unsigned EDT values using Saito and Toriwaki's method. Using a non-negative radius:
 <blockquote><code>% Bin/*/EDTFromMesh --in <A HREF="http://www.cs.jhu.edu/~misha/Code/EDT/bunny.ply">bunny.ply</A> --out bunny.danielsson.edt --depth 9 --radius 1</code></blockquote>
 generates a 512&times;512&times;512 voxel grid file of unsigned EDT values using Danielsson's method.<BR>
-You can then extract the iso-surface at a distance of 5 voxel by calling:
+You can then extract the iso-surface at a distance of 5 voxels by calling:
 <blockquote><code>% Bin/*/MarchingCubes --in bunny.saito.edt --out bunny.saito.ply --value 5</code></blockquote>
 <blockquote><code>% Bin/*/MarchingCubes --in bunny.danielsson.edt --out bunny.danielsson.ply --value 5</code></blockquote>
 The figure below shows a visualization of the input mesh (left) the iso-surface extracted from the EDT computed using Saito and Toriwaki's method (middle) and the iso-surface extracted from the EDT computed using Danielsson's method.
@@ -173,8 +173,50 @@ The figure below shows a visualization of the input mesh (left) the iso-surface 
 	<TH ALIGN="CENTER">Danielsson's EDT
 </TR>
 </TABLE>
+</details>
+</dl>
 
-
+<dl>
+<details>
+<summary>
+<font size="+1"><b>EDTFromGrid/MarchingCubes</b></font>
+</summary>
+To run this executable you must specify the input masks (represented as a list of images), the (color) identifier of the mask of interest, and the output voxel grid:
+<blockquote><code>% Bin/*/EDTFromMesh --in <A HREF="http://www.cs.jhu.edu/~misha/Code/EDT/zeta.zip">zeta.txt</A> --id 249 249 209 --out zeta.A.edt</code></blockquote>
+<blockquote><code>% Bin/*/EDTFromMesh --in <A HREF="http://www.cs.jhu.edu/~misha/Code/EDT/zeta.zip">zeta.txt</A> --id 177 121 100 --out zeta.B.edt</code></blockquote>
+This generates a 579&times;641&times;475 voxel grid file of signed EDT values using Saito and Toriwaki's method.<BR>
+You can then extract the iso-surface at distance of -2, 0, and 5 voxels by calling:
+<blockquote><code>% Bin/*/MarchingCubes --in zeta.A.edt --out zeta.A.-2.ply --value -2</code></blockquote>
+<blockquote><code>% Bin/*/MarchingCubes --in zeta.A.edt --out zeta.A.0.ply  --value  0</code></blockquote>
+<blockquote><code>% Bin/*/MarchingCubes --in zeta.A.edt --out zeta.A.5.ply  --value  5</code></blockquote>
+<blockquote><code>% Bin/*/MarchingCubes --in zeta.B.edt --out zeta.B.-2.ply --value -2</code></blockquote>
+<blockquote><code>% Bin/*/MarchingCubes --in zeta.B.edt --out zeta.B.0.ply  --value  0</code></blockquote>
+<blockquote><code>% Bin/*/MarchingCubes --in zeta.B.edt --out zeta.B.5.ply  --value  5</code></blockquote>
+The figure below shows a visualization of the iso-surfaces extracted from the EDT.
+<TABLE BORDER=1>
+<TR>
+	<TD><IMG SRC="zeta.A.-2.jpg">
+	<TD><IMG SRC="zeta.A.0.jpg">
+	<TD><IMG SRC="zeta.A.5.jpg">
+</TR>
+<TR>
+	<TH ALIGN="CENTER">id = (249,249,209); d = -2
+	<TH ALIGN="CENTER">id = (249,249,209); d =  0
+	<TH ALIGN="CENTER">id = (249,249,209); d =  5
+</TR>
+</TABLE>
+<TABLE BORDER=1>
+<TR>
+	<TD><IMG SRC="zeta.B.-2.jpg">
+	<TD><IMG SRC="zeta.B.0.jpg">
+	<TD><IMG SRC="zeta.B.5.jpg">
+</TR>
+<TR>
+	<TH ALIGN="CENTER">id = (177,121,100); d = -2
+	<TH ALIGN="CENTER">id = (177,121,100); d =  0
+	<TH ALIGN="CENTER">id = (177,121,100); d =  5
+</TR>
+</TABLE>
 </details>
 </dl>
 

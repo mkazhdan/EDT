@@ -57,6 +57,7 @@ inline PNGReader::PNGReader( const char* fileName , unsigned int& width , unsign
 
 	width = png_get_image_width( _png_ptr , _info_ptr );
 	height = png_get_image_height( _png_ptr, _info_ptr );
+
 	channels = png_get_channels( _png_ptr , _info_ptr );
 	int bit_depth=png_get_bit_depth( _png_ptr , _info_ptr );
 	int color_type = png_get_color_type( _png_ptr , _info_ptr );
@@ -133,6 +134,9 @@ PNGWriter::PNGWriter( const char* fileName , unsigned int width , unsigned int h
 		default: fprintf( stderr , "[ERROR] PNGWriter: Only 1, 3, or 4 channel PNGs are supported\n" ) , exit( 0 );
 	};
 	png_set_IHDR( _png_ptr , _info_ptr, width , height, 8 , pngColorType , PNG_INTERLACE_NONE , PNG_COMPRESSION_TYPE_DEFAULT , PNG_FILTER_TYPE_DEFAULT );
+#ifdef NEW_PNG
+	_width = width;
+#endif // NEW_PNG
 	png_write_info( _png_ptr , _info_ptr );
 
 	{
@@ -154,7 +158,11 @@ unsigned int PNGWriter::nextRow( const unsigned char* row )
 }
 unsigned int PNGWriter::nextRows( const unsigned char* rows , unsigned int rowNum )
 {
+#ifdef NEW_PNG
+	for( unsigned int r=0 ; r<rowNum ; r++ ) png_write_row( _png_ptr , (png_bytep)( rows + r * 3 * sizeof( unsigned char ) * _width ) );
+#else // !NEW_PNG
 	for( unsigned int r=0 ; r<rowNum ; r++ ) png_write_row( _png_ptr , (png_bytep)( rows + r * 3 * sizeof( unsigned char ) * _png_ptr->width ) );
+#endif // NEW_PNG
 	return _currentRow += rowNum;
 }
 #else

@@ -29,6 +29,7 @@ DAMAGE.
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
+#include <unordered_map>
 #include "Misha/CmdLineParser.h"
 #include "Misha/Miscellany.h"
 #include "Misha/SquaredEDT.h"
@@ -110,9 +111,12 @@ int main( int argc , char* argv[] )
 
 	RegularGrid< unsigned int , 3 > grid;
 
+	auto RGBToInt = []( const unsigned char *rgb ){ return (unsigned int)rgb[0] <<16 | (unsigned int)rgb[1]<<8 | (unsigned int)rgb[2]<<0; };
+
+	std::unordered_map< unsigned int , Point3D< unsigned int > > ids;
+
 	Miscellany::Timer timer;
 	{
-		auto RGBToInt = []( const unsigned char *rgb ){ return (unsigned int)rgb[0] <<16 | (unsigned int)rgb[1]<<8 | (unsigned int)rgb[2]<<0; };
 
 		std::vector< std::string > images = Misha::ReadLines( In.value );
 
@@ -132,13 +136,26 @@ int main( int argc , char* argv[] )
 				for( unsigned int i=0 ; i<width ; i++ ) for( unsigned int j=0 ; j<height ; j++ )
 					grid(i,j,k) = RGBToInt( rgb + 3 *( j*width+i ) );
 			}
+
+			if( !ID.set )
+			{
+				for( unsigned int i=0 ; i<width ; i++ ) for( unsigned int j=0 ; j<height ; j++ )
+					ids[ RGBToInt( rgb + 3 *( j*width+i ) ) ] = Point3D< int >( (int)rgb[ 3 *( j*width+i ) + 0 ] , (int)rgb[ 3 *( j*width+i ) + 1 ] , (int)rgb[ 3 *( j*width+i ) + 2 ] );
+			}
+
 			delete[] rgb;
 		}
 	}
-	std::cout << "Read grid: " << timer.elapsed() << std::endl;
-	
-	RegularGrid< float , 3 > signedEDT = GetSignedEDT< unsigned int >( grid , ID.values[0]<<16 | ID.values[1]<<8 | ID.values[2] , Verbose.set );
 
-	if( Out.set ) signedEDT.template write< float >( Out.value , XForm< float , 4 >::Identity() );
+	if( Verbose.set ) std::cout << "Read grid: " << grid.res(0) << " x " << grid.res(1) << " x " << grid.res(2) << " in " << timer.elapsed() << std::endl;
+
+	if( ID.set )
+	{
+		RegularGrid< float , 3 > signedEDT = GetSignedEDT< unsigned int >( grid , ID.values[0]<<16 | ID.values[1]<<8 | ID.values[2] , Verbose.set );
+
+		if( Out.set ) signedEDT.template write< float >( Out.value , XForm< float , 4 >::Identity() );
+	}
+	else for( auto i=ids.begin() ; i!=ids.end() ; i++ ) std::cout << i->second << " -> " << i->first << std::endl;
+
 	return EXIT_SUCCESS;
 }
