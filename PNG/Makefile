@@ -1,5 +1,5 @@
 PNG_TARGET=libmypng.a
-PNG_SOURCE=png.c pngerror.c pnggccrd.c pngget.c pngmem.c pngpread.c pngread.c pngrio.c pngrtran.c pngrutil.c pngset.c pngtest.c pngtrans.c pngvcrd.c pngwio.c pngwrite.c pngwtran.c pngwutil.c
+PNG_SOURCE=png.c pngerror.c pngget.c pngmem.c pngpread.c pngread.c pngrio.c pngrtran.c pngrutil.c pngset.c pngwio.c pngwrite.c pngwtran.c pngwutil.c pngtrans.c
 
 COMPILER ?= gcc
 #COMPILER ?= clang
